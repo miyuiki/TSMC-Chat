@@ -7,10 +7,54 @@
     <script src="https://code.jquery.com/jquery-3.5.1.js"
         integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
 
-
+    <style type="text/css">
+        .footer {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: #eceaea;
+        }
+    </style>
 </head>
 
 <body>
+    <div class="container">
+        <div class="row justify-content-end">
+            <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true" style="width: 100%;">
+                <div class="toast-header">
+                    <svg class="bd-placeholder-img rounded mr-2" width="20" height="20"
+                        xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false"
+                        role="img">
+                        <rect width="100%" height="100%" fill="#007aff"></rect>
+                    </svg>
+                    <strong class="mr-auto">Bootstrap</strong>
+                    <small class="text-muted">time</small>
+                </div>
+                <div class="toast-body">
+                    See? Just like this.
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="toast fade show" role="alert" aria-live="assertive" aria-atomic="true" style="width: 100%;">
+                <div class="toast-header">
+                    <svg class="bd-placeholder-img rounded mr-2" width="20" height="20"
+                        xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false"
+                        role="img">
+                        <rect width="100%" height="100%" fill="#007aff"></rect>
+                    </svg>
+                    <strong class="mr-auto">Bootstrap</strong>
+                    <small class="text-muted">time</small>
+                </div>
+                <div class="toast-body">
+                    See? Just like this.
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
     <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
         aria-hidden="true">
         <div class="modal-dialog" role="document">
@@ -26,12 +70,6 @@
                         <button type="submit" class="btn btn-primary" data-dismiss="modal">儲存</button>
                     </form>
                 </div>
-            </div>
-        </div>
-    </div>
-    <div class="container">
-        <div class="d-flex justify-content-center align-items-center w-100">
-            <div class="text-left bg-warning w-50" id="show">
             </div>
         </div>
     </div>
@@ -56,11 +94,18 @@
     <script>
         $('#exampleModal').modal({ show: true, backdrop: 'static', keyboard: false });
     </script>
-    <footer class="navbar-fixed-bottom">
-        <div class="container">
-            聊天內容：<input id="content">
-            <button id="btn">送出資料</button>
-            <button id="clean">清除資料</button>
+    <footer class="footer"">
+        <div class=" container">
+        <div class="row">
+            <div class="col">
+                <input type="text" class="form-control" id="content" placeholder="開始聊天"">
+                </div>
+                <div class=" col-4">
+                <button id="btn" class="btn btn-primary">傳送</button>
+                <button id="clean" class="btn btn-secondary">清除資料</button>
+                <button id="reset"" class=" btn btn-danger">重設名稱</button>
+            </div>
+        </div>
         </div>
     </footer>
 </body>

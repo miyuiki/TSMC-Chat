@@ -16,6 +16,7 @@ $(document).ready(function () {
 $(function () {
     var $btn = $('#btn'),
         $show = $('#show'),
+        $reset = $('#reset')
         $clean = $('#clean');
 
     var config = {
@@ -42,12 +43,17 @@ $(function () {
         database.remove();
     });
 
+    $reset.on('click', function() {
+        // alert('work')
+        $('#exampleModal').modal('show')
+    });
+
     database.on('value', function (snapshot) {
         $show.html('');
         var arr = [];
         for (var i in snapshot.val()) {
             arr.push(snapshot.val()[i]);
-            $show.append('<div class="row">' + snapshot.val()[i].name + ':' + snapshot.val()[i].content + '</div>');
+            $show.append('<div class="row"><span class="rounded">' + snapshot.val()[i].name + ':' + snapshot.val()[i].content + '</span></div>');
         }
     });
 
