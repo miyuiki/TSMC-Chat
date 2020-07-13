@@ -1,8 +1,22 @@
 var firebase;
+var $name = ''
+
+$(document).ready(function () {
+    // var form = $('form');
+    var submit = $('button[type="submit"]');
+    submit.on('click', function (e) {
+        e.preventDefault();
+        if($('#inputNmae').val() == ""){
+            // $('#show_error').show();
+            return false;
+        }
+        $name = $('#inputNmae').val();
+    });
+});
 $(function () {
     var $btn = $('#btn'),
-        $show = $('#show');
-        $clean = $('#clean')
+        $show = $('#show'),
+        $clean = $('#clean');
 
     var config = {
         apiKey: "AIzaSyCAtEgAwEuuLlr3WYfxsX9ZMW9BT0GuRdI",
@@ -18,23 +32,23 @@ $(function () {
 
     $btn.on('click', function () {
         var postData = {
-            name: $('#name').val(),
+            name: $name,
             content: $('#content').val()
         };
         database.push(postData);
     });
 
-    $clean.on('click', function(){
+    $clean.on('click', function () {
         database.remove();
     });
-    
-    database.on('value', function(snapshot) {
+
+    database.on('value', function (snapshot) {
         $show.html('');
         var arr = [];
-        for(var i in snapshot.val()){
-           arr.push(snapshot.val()[i]);
-           $show.append('<span>'+snapshot.val()[i].name+' 說：'+snapshot.val()[i].content+'</span><br/>');
+        for (var i in snapshot.val()) {
+            arr.push(snapshot.val()[i]);
+            $show.append('<div class="row">' + snapshot.val()[i].name + ':' + snapshot.val()[i].content + '</div>');
         }
-      });
+    });
 
 });
