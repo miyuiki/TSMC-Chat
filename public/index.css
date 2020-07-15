@@ -1,0 +1,21 @@
+body {
+    overflow: hidden;
+}
+#show {
+    max-height: calc(100% - 60px);
+    overflow-y: auto;
+    /* padding: 0px 5% !important; */
+    margin-top: 40px !important;
+}
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+}
+footer {
+    width: 100%;
+    height: 40px; 
+    position: fixed;
+    bottom: 0;
+}
